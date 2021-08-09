@@ -28,3 +28,5 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodZone"]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="FoodZone" to="." method="_on_FoodZone_body_entered"]
