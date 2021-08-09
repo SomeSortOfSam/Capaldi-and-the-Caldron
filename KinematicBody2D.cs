@@ -29,10 +29,11 @@ public class KinematicBody2D : Godot.KinematicBody2D
 		{
 			movementVector += Vector2.Right;
 		}
-		if (Input.IsActionPressed("ui_up"))
+		if (Input.IsActionPressed("ui_up")&&true)
 		{
 			movementVector += Vector2.Up;
 		}
+		//up is differnt, setup to allow a jump
 		if (Input.IsActionPressed("ui_down"))
 		{
 			movementVector += Vector2.Down;
