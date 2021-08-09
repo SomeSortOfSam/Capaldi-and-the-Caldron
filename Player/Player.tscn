@@ -10,11 +10,14 @@ height = 18.6096
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.997828, 1 )
 script = ExtResource( 1 )
+SPEED = 10.0
+GRAVITY = Vector2( 0, 1 )
+FRICTION = 0.9
 
-[node name="icon" type="AnimatedSprite" parent="."]
+[node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 6
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
