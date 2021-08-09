@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "Food",
 "language": "GDScript",
 "path": "res://Food.gd"
+}, {
+"base": "Resource",
+"class": "FoodDefinition",
+"language": "GDScript",
+"path": "res://FoodDefinition.gd"
+}, {
+"base": "Resource",
+"class": "Recipe",
+"language": "GDScript",
+"path": "res://Recipe.gd"
 } ]
 _global_script_class_icons={
 "Cauldron": "",
-"Food": ""
+"Food": "",
+"FoodDefinition": "",
+"Recipe": ""
 }
 
 [WAT]
@@ -41,7 +53,6 @@ Display=8
 [application]
 
 config/name="Capaldi and the Caldron"
-run/main_scene="res://Test scene.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
