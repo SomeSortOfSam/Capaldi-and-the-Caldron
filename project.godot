@@ -53,6 +53,7 @@ Display=8
 [application]
 
 config/name="Capaldi and the Caldron"
+run/main_scene="res://GUT.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
