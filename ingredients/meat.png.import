@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pasta.png-a44925543929db05afbe8b1ba73769b5.stex"
+path="res://.import/meat.png-c8b2e259ddd6b6d86b5a8446ebe64b31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pasta.png"
-dest_files=[ "res://.import/pasta.png-a44925543929db05afbe8b1ba73769b5.stex" ]
+source_file="res://ingredients/meat.png"
+dest_files=[ "res://.import/meat.png-c8b2e259ddd6b6d86b5a8446ebe64b31.stex" ]
 
 [params]
 
