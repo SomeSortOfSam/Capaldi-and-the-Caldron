@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Cauldron",
+"language": "GDScript",
+"path": "res://Cauldron.gd"
+}, {
+"base": "Node2D",
+"class": "Food",
+"language": "GDScript",
+"path": "res://Food.gd"
+} ]
+_global_script_class_icons={
+"Cauldron": "",
+"Food": ""
+}
+
 [WAT]
 
 Test_Directory="res://tests"
@@ -27,6 +43,10 @@ Display=8
 config/name="Capaldi and the Caldron"
 run/main_scene="res://Test scene.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
 
 [physics]
 
