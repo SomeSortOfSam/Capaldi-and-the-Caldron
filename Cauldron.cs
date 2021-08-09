@@ -17,6 +17,7 @@ public class Cauldron : Node2D
         ingredients[ingredientIndex] = newFood;
         if(ingredientIndex >= ingredients.Length - 1)
         {
+            CheckRecipe();
         }
     }
 
