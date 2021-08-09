@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 
 public interface IFood
 {
+    string name { get; }
 }
 
