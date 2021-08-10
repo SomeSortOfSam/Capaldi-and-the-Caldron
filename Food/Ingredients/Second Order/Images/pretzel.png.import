@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stuffedbakedpotato.png-7fa4ed1f3219373a755bb8b9b1c3aea7.stex"
+path="res://.import/pretzel.png-ef64788f1c33bb3f5070fda9c78950b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/stuffedbakedpotato.png"
-dest_files=[ "res://.import/stuffedbakedpotato.png-7fa4ed1f3219373a755bb8b9b1c3aea7.stex" ]
+source_file="res://Food/Ingredients/Second Order/Images/pretzel.png"
+dest_files=[ "res://.import/pretzel.png-ef64788f1c33bb3f5070fda9c78950b6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

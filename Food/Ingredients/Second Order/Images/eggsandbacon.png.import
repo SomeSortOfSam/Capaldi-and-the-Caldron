@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pretzel.png-b60a03fd7f5de65c3b4e083b5429f702.stex"
+path="res://.import/eggsandbacon.png-a3f912e3a8d52dfda74f1001d2a06049.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/ingredients/pretzel.png"
-dest_files=[ "res://.import/pretzel.png-b60a03fd7f5de65c3b4e083b5429f702.stex" ]
+source_file="res://Food/Ingredients/Second Order/Images/eggsandbacon.png"
+dest_files=[ "res://.import/eggsandbacon.png-a3f912e3a8d52dfda74f1001d2a06049.stex" ]
 
 [params]
 

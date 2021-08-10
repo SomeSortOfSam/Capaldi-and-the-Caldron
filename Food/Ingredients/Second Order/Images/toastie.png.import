@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scrambledeggs.png-10444d811d5501d1800b577c73725690.stex"
+path="res://.import/toastie.png-7d8b3016c0cb0f347de23709cded2050.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/ingredients/scrambledeggs.png"
-dest_files=[ "res://.import/scrambledeggs.png-10444d811d5501d1800b577c73725690.stex" ]
+source_file="res://Food/Ingredients/Second Order/Images/toastie.png"
+dest_files=[ "res://.import/toastie.png-7d8b3016c0cb0f347de23709cded2050.stex" ]
 
 [params]
 

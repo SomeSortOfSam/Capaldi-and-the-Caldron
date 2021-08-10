@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bread.png-9657902ec1d077219779f5c7c1819257.stex"
+path="res://.import/milk.png-b528bdf446b1e1366297b83cce00afe0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/ingredients/bread.png"
-dest_files=[ "res://.import/bread.png-9657902ec1d077219779f5c7c1819257.stex" ]
+source_file="res://Food/Ingredients/First Order/Images/milk.png"
+dest_files=[ "res://.import/milk.png-b528bdf446b1e1366297b83cce00afe0.stex" ]
 
 [params]
 
