@@ -19,10 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Food/Scripts/Food/Food.gd"
 }, {
+"base": "Node2D",
+"class": "FoodQueue",
+"language": "GDScript",
+"path": "res://Player/FoodQueue/FoodQueue.gd"
+}, {
 "base": "Control",
 "class": "FoodQueueGUIItem",
 "language": "GDScript",
-"path": "res://Player/FoodQueueGUIItem.gd"
+"path": "res://Player/FoodQueue/FoodQueueGUIItem.gd"
 }, {
 "base": "Resource",
 "class": "Ingredient",
@@ -42,6 +47,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Cauldron": "",
 "Food": "",
+"FoodQueue": "",
 "FoodQueueGUIItem": "",
 "Ingredient": "",
 "Player": "",

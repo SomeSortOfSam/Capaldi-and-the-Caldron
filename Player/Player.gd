@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-const QUEUE_GUI_ITEM_PATH = "res://Player/FoodQueueGUIItem.tscn"
-
 const ANIM_JUMP_PREFIX = "Jump"
 const ANIM_IDEL_PREFIX = "Still"
 const ANIM_CROUCH_PREFIX = "Crouch"
@@ -23,11 +21,10 @@ onready var ground_cast : RayCast2D = $RayCast2D
 onready var queue_jump_timer : Timer = $QueueJumpTimer
 onready var grounded_delay : Timer = $GroundedDelayTimer
 onready var food_holder : Node2D = $FoodHolder
-onready var food_queue_GUI : VBoxContainer = $CanvasLayer/VBoxContainer
+onready var food_queue : FoodQueue = $FoodQueue
 
 var velocity := Vector2.ZERO;
-var check_for_pickup := []
-var foods := []
+
 var holding : bool
 
 func _process(_delta):
@@ -99,39 +96,23 @@ func _unhandled_input(event):
 			check_throw()
 
 func check_pickup():
-	if check_for_pickup.size() > 0:
-		pickup_food(check_for_pickup.pop_back())
+	if food_queue.can_pickup():
+		food_queue.pickup()
 	elif holding:
 		reclaim_held_food()
-	elif foods.size() > 0:
+	elif food_queue.foods_in_queue():
 		hold_next_food()
-
-func pickup_food(food : Food):
-	foods.push_back(food.definition)
-	food.queue_free()
 
 func hold_next_food():
 	var food = load(Food.SCENE_PATH).instance() as Food
-	food.definition = foods.pop_front()
+	food.definition = food_queue.get_next_food()
 	food_holder.add_child(food)
 	food.is_held = true
 	holding = true
 
 func reclaim_held_food():
-	pickup_food(food_holder.get_child(0))
+	food_queue.add_food(food_holder.get_child(0))
 	holding = false
-
-func _on_PickupZone_area_entered(area):
-	var food := area.get_parent() as Food
-	if food is Food:
-		check_for_pickup.append(food)
-
-func _on_PickupZone_area_exited(area):
-	var food := area.get_parent() as Food
-	if food is Food:
-		var index := check_for_pickup.find(food)
-		if index != -1:
-			check_for_pickup.remove(index)
 
 func check_throw():
 	if holding:
