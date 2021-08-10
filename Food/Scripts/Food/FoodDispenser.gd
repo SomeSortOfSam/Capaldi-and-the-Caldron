@@ -9,3 +9,8 @@ func check_definition(new_definition : FoodDefinition):
 
 func set_definition(new_definition : FoodDefinition):
 	food_defininition = new_definition
+
+func spawn_food():
+	var food = load(Food.SCENE_PATH).instance() as Food
+	food.definition = food_defininition
+	get_parent().add_child(food)

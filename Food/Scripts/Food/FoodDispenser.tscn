@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Food/Scripts/Food/FoodDispenser.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="FoodDispenser" type="Node2D"]

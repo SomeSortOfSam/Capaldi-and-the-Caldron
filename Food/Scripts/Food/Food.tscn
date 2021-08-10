@@ -1,19 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Food/Scripts/Food/Food.gd" type="Script" id=1]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Food" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="CapsuleShape2D" id=2]
+height = 10.0
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Food" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 1 )
+GRAVITY = 5.0
+FRICTION = 0.7
+
+[node name="Sprite3" type="Sprite" parent="."]
 
 [node name="PickupZone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
 shape = SubResource( 1 )
-[connection signal="body_entered" from="PickupZone" to="." method="_on_PickupZone_body_entered"]
-[connection signal="body_exited" from="PickupZone" to="." method="_on_PickupZone_body_exited"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 20 )
