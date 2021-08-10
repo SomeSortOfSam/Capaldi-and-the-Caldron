@@ -25,7 +25,12 @@ collision_mask = 0
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -419.615, 4.6275 )
+position = Vector2( -414.003, -27.9239 )
+scale = Vector2( 1.5, 1.5 )
+SPEED = 14.0
+GRAVITY = 20.0
+ROLLING_FRICION = 0.19
+JUMP_HEIGHT = 400.0
 
 [node name="Cauldron" parent="." instance=ExtResource( 2 )]
 
@@ -56,9 +61,6 @@ definition = ExtResource( 7 )
 [node name="Food7" parent="." instance=ExtResource( 10 )]
 position = Vector2( -546.5, -122 )
 definition = ExtResource( 9 )
-
-[node name="Food8" parent="." instance=ExtResource( 10 )]
-position = Vector2( -252.5, -129.5 )
 
 [node name="Food9" parent="." instance=ExtResource( 10 )]
 position = Vector2( -252.5, -129.5 )
