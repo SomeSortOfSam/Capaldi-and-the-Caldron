@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Cauldron",
 "language": "GDScript",
-"path": "res://Cauldron.gd"
+"path": "res://Food/Cauldron.gd"
 }, {
 "base": "Node2D",
 "class": "Food",
 "language": "GDScript",
-"path": "res://Food.gd"
+"path": "res://Food/Food.gd"
 }, {
 "base": "Resource",
 "class": "FoodDefinition",
 "language": "GDScript",
-"path": "res://FoodDefinition.gd"
+"path": "res://Food/FoodDefinition.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Recipe",
 "language": "GDScript",
-"path": "res://Recipe.gd"
+"path": "res://Food/Recipe.gd"
 } ]
 _global_script_class_icons={
 "Cauldron": "",

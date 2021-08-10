@@ -9,6 +9,8 @@ const ANIM_WALK_PREFIX = "Walk"
 const ANIM_HOLDING_SUFFIX = "Hold"
 const ANIM_NOT_HOLDING_SUFFIX = "Empty"
 
+signal try_pickup()
+
 export var SPEED : float
 export var GRAVITY: float
 export(float,0,1) var ROLLING_FRICION : float
@@ -23,6 +25,7 @@ onready var queue_jump_timer : Timer = $QueueJumpTimer
 onready var grounded_delay : Timer = $GroundedDelayTimer
 
 var velocity := Vector2.ZERO;
+var foods := []
 
 func _process(_delta):
 	sprite.flip_h = velocity.x > 0
@@ -77,3 +80,10 @@ func get_animation_prefix() -> String:
 	if !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right"):
 		return ANIM_IDEL_PREFIX
 	return ANIM_WALK_PREFIX
+
+func add_food(food : FoodDefinition):
+	foods.push_back(food)
+
+#func remove_food():
+#	var food = get_parent().add_child(Food.new())
+#	food.definition = foods.pop_front()
