@@ -4,9 +4,9 @@ var cauldron : Cauldron
 var food1 := Food.new()
 var food2 := Food.new()
 var food3 := Food.new()
-var food1def := FoodDefinition.new()
-var food2def := FoodDefinition.new()
-var food3def := FoodDefinition.new()
+var food1def := Ingredient.new()
+var food2def := Ingredient.new()
+var food3def := Ingredient.new()
 var recipe : Recipe
 
 func before_all():

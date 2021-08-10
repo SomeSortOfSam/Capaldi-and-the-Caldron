@@ -9,9 +9,6 @@ const ANIM_WALK_PREFIX = "Walk"
 const ANIM_HOLDING_SUFFIX = "Hold"
 const ANIM_NOT_HOLDING_SUFFIX = "Empty"
 
-signal got_food(food)
-signal ungot_food()
-
 export var SPEED : float
 export var GRAVITY: float
 export(float,0,1) var ROLLING_FRICION : float
@@ -24,10 +21,10 @@ onready var ground_cast : RayCast2D = $RayCast2D
 onready var queue_jump_timer : Timer = $QueueJumpTimer
 onready var grounded_delay : Timer = $GroundedDelayTimer
 onready var food_holder : Node2D = $FoodHolder
+onready var food_queue : FoodQueue = $FoodQueue
 
 var velocity := Vector2.ZERO;
-var check_for_pickup := []
-var foods := []
+
 var holding : bool
 
 func _process(_delta):
@@ -57,15 +54,18 @@ func apply_friction(delta,axis : float) -> float:
 	return pow(1-STATIC_FRICTION,delta *10.0)
 
 func check_jump(y : float) -> float:
-	if ground_cast.is_colliding():
-		grounded_delay.start()
-	if Input.is_action_pressed("ui_up"):
-		queue_jump_timer.start()
+	start_jump_timers()
 	if !queue_jump_timer.is_stopped() && !grounded_delay.is_stopped():
 		return -GRAVITY - JUMP_HEIGHT
 	if y < 0 && !Input.is_action_pressed("ui_up"):
 		return  y * END_JUMP_PERCENT
 	return y
+
+func start_jump_timers():
+	if ground_cast.is_colliding():
+		grounded_delay.start()
+	if Input.is_action_pressed("ui_up"):
+		queue_jump_timer.start()
 
 func handle_animation():
 	sprite.flip_h = velocity.x > 0
@@ -93,44 +93,28 @@ func _unhandled_input(event):
 		if event.is_action_pressed("ui_down", false):
 			check_pickup()
 		if event is InputEventMouseButton && event.is_pressed() && event.button_index == 1:
-			check_throw(event)
+			check_throw()
 
 func check_pickup():
-	if check_for_pickup.size() > 0:
-		pickup_food(check_for_pickup.pop_back())
+	if food_queue.can_pickup():
+		food_queue.pickup()
 	elif holding:
 		reclaim_held_food()
-	elif foods.size() > 0:
+	elif food_queue.foods_in_queue():
 		hold_next_food()
-
-func pickup_food(food : Food):
-	foods.push_back(food.definition)
-	food.queue_free()
 
 func hold_next_food():
 	var food = load(Food.SCENE_PATH).instance() as Food
-	food.definition = foods.pop_front()
+	food.definition = food_queue.get_next_food()
 	food_holder.add_child(food)
 	food.is_held = true
 	holding = true
 
 func reclaim_held_food():
-	pickup_food(food_holder.get_child(0))
+	food_queue.add_food(food_holder.get_child(0))
 	holding = false
 
-func _on_PickupZone_area_entered(area):
-	var food := area.get_parent() as Food
-	if food is Food:
-		check_for_pickup.append(food)
-
-func _on_PickupZone_area_exited(area):
-	var food := area.get_parent() as Food
-	if food is Food:
-		var index := check_for_pickup.find(food)
-		if index != -1:
-			check_for_pickup.remove(index)
-
-func check_throw(event : InputEventMouseButton):
+func check_throw():
 	if holding:
 		var food = food_holder.get_child(0) as Food
 		reparent_food(food)

@@ -2,13 +2,11 @@
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Player/FoodQueue/FoodQueue.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.44221
 height = 18.6096
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15, 10 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.997828, 1 )
@@ -24,7 +22,7 @@ END_JUMP_PERCENT = 0.2
 [node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 1
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -50,12 +48,4 @@ current = true
 position = Vector2( 0, -27 )
 z_index = -1
 
-[node name="PickupZone" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
-position = Vector2( 0, 10 )
-shape = SubResource( 2 )
-[connection signal="area_entered" from="PickupZone" to="." method="_on_PickupZone_area_entered"]
-[connection signal="area_exited" from="PickupZone" to="." method="_on_PickupZone_area_exited"]
+[node name="FoodQueue" parent="." instance=ExtResource( 3 )]

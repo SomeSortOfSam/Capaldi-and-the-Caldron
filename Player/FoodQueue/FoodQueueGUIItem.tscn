@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player/FoodQueue/FoodQueueGUIItem.gd" type="Script" id=1]
+[ext_resource path="res://Food/Ingredients/First Order/Images/bread.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.541936 )
+colors = PoolColorArray( 0.257813, 0.257813, 0.257813, 1, 0.25, 0.25, 0.25, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 100
+
+[node name="FoodQueueGUIItem" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+rect_min_size = Vector2( 200, 50 )
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 28.0
+margin_top = 10.0
+margin_right = -20.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 40.0
+margin_bottom = 20.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+text = "Bread"
+valign = 1

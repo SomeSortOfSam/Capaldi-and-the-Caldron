@@ -1,12 +1,13 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Food/Scripts/Recipe.gd" type="Script" id=1]
-[ext_resource path="res://Food/Ingredients/Second Order/Resorces/eggs&bacon.tres" type="Resource" id=2]
-[ext_resource path="res://Food/Ingredients/First Order/Resources/egg.tres" type="Resource" id=3]
+[ext_resource path="res://Food/Ingredients/Second Order/Resorces/pretzel.tres" type="Resource" id=2]
+[ext_resource path="res://Food/Ingredients/First Order/Resources/bread.tres" type="Resource" id=3]
 [ext_resource path="res://Food/Ingredients/First Order/Resources/butter.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
 food1 = ExtResource( 3 )
-food2 = ExtResource( 4 )
+food2 = ExtResource( 3 )
+food3 = ExtResource( 4 )
 Result = ExtResource( 2 )

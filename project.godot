@@ -19,8 +19,18 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Food/Scripts/Food/Food.gd"
 }, {
+"base": "Node2D",
+"class": "FoodQueue",
+"language": "GDScript",
+"path": "res://Player/FoodQueue/FoodQueue.gd"
+}, {
+"base": "Control",
+"class": "FoodQueueGUIItem",
+"language": "GDScript",
+"path": "res://Player/FoodQueue/FoodQueueGUIItem.gd"
+}, {
 "base": "Resource",
-"class": "FoodDefinition",
+"class": "Ingredient",
 "language": "GDScript",
 "path": "res://Food/Scripts/Food/FoodDefinition.gd"
 }, {
@@ -37,7 +47,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Cauldron": "",
 "Food": "",
-"FoodDefinition": "",
+"FoodQueue": "",
+"FoodQueueGUIItem": "",
+"Ingredient": "",
 "Player": "",
 "Recipe": ""
 }
@@ -58,7 +70,7 @@ Display=8
 
 [application]
 
-config/name="Capaldi and the Caldron 0.0.2"
+config/name="Capaldi and the Caldron 0.0.4"
 run/main_scene="res://Test.tscn"
 config/icon="res://icon.png"
 

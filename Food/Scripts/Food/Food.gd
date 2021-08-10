@@ -23,11 +23,11 @@ func _physics_process(delta):
 		
 		velocity = move_and_slide(velocity)
 
-func check_definition(new_definition : FoodDefinition):
-	assert(new_definition is FoodDefinition || new_definition == null, "New FoodDefinition is not of type FoodDefinition") 
-	if new_definition is FoodDefinition:
+func check_definition(new_definition : Ingredient):
+	assert(new_definition is Ingredient || new_definition == null, "New Ingredient is not of type Ingredient") 
+	if new_definition is Ingredient:
 		call_deferred("set_definition",new_definition)
 
-func set_definition(new_definition : FoodDefinition):
+func set_definition(new_definition : Ingredient):
 	definition = new_definition
 	sprite.texture = definition.sprite

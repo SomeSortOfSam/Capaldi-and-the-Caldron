@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Food/Ingredients/Second Order/Resorces/toastie.tres" type="Resource" id=1]
+[ext_resource path="res://Food/Scripts/Recipe.gd" type="Script" id=2]
+[ext_resource path="res://Food/Ingredients/First Order/Resources/cheese.tres" type="Resource" id=3]
+[ext_resource path="res://Food/Ingredients/First Order/Resources/bread.tres" type="Resource" id=4]
+[ext_resource path="res://Food/Ingredients/First Order/Resources/egg.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 2 )
+food1 = ExtResource( 4 )
+food2 = ExtResource( 3 )
+food3 = ExtResource( 5 )
+Result = ExtResource( 1 )
