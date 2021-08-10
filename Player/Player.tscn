@@ -22,7 +22,7 @@ END_JUMP_PERCENT = 0.2
 [node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 4
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

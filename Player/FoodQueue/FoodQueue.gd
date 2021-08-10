@@ -45,7 +45,8 @@ func add_gui_item(food : Ingredient):
 	var item := packed_item.instance() as FoodQueueGUIItem
 	item.food_defininition = food
 	gui_container.add_child(item)
+	gui_container.move_child(item,0)
 
 func remove_gui_item():
-	gui_container.get_child(0).queue_free()
-	gui_container.rect_size = gui_container.rect_min_size
+	gui_container.get_child(gui_container.get_child_count() -1).free()
+	gui_container.margin_top = 0

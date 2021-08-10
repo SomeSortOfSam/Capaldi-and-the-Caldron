@@ -70,7 +70,7 @@ Display=8
 
 [application]
 
-config/name="Capaldi and the Caldron 0.0.2"
+config/name="Capaldi and the Caldron 0.0.4"
 run/main_scene="res://Test.tscn"
 config/icon="res://icon.png"
 
