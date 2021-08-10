@@ -10,9 +10,11 @@ const ANIM_HOLDING_SUFFIX = "Hold"
 const ANIM_NOT_HOLDING_SUFFIX = "Empty"
 
 export var SPEED : float
-export var GRAVITY: Vector2;
-export var FRICTION : float
+export var GRAVITY: float
+export(float,0,1) var ROLLING_FRICION : float
+export(float,0,1) var STATIC_FRICTION : float
 export var JUMP_HEIGHT : float
+export(float,.001,1) var END_JUMP_PERCENT : float
 export var holding : bool
 
 onready var sprite : AnimatedSprite = $Icon
@@ -26,30 +28,38 @@ func _process(_delta):
 	sprite.flip_h = velocity.x > 0
 	sprite.animation = get_animation_name()
 
-func _physics_process(_delta):
-	velocity += get_horizontal_input_vector() * SPEED
-	velocity += GRAVITY;
-	
-	check_jump()
+func _physics_process(delta):
+	var axis = get_horizontal_axis()
+	velocity.x += axis * SPEED
+	velocity.x *= apply_friction(delta,axis)
+	velocity.y += GRAVITY;
+	velocity.y = check_jump(velocity.y)
 	
 	velocity = move_and_slide(velocity)
-	velocity.x *= FRICTION
 
-func get_horizontal_input_vector()->Vector2:
-	var movementVector := Vector2.ZERO
+func get_horizontal_axis() -> float:
+	var movementVector := 0.0
 	if(Input.is_action_pressed("ui_left")):
-		movementVector += Vector2.LEFT
+		movementVector -= 1.0
 	if(Input.is_action_pressed("ui_right")):
-		movementVector += Vector2.RIGHT
-	return movementVector.normalized()
+		movementVector += 1.0
+	return movementVector
 
-func check_jump():
+func apply_friction(delta,axis : float) -> float:
+	if axis != 0:
+		return pow(1-ROLLING_FRICION,delta * 10.0)
+	return pow(1-STATIC_FRICTION,delta *10.0)
+
+func check_jump(y : float) -> float:
 	if ground_cast.is_colliding():
 		grounded_delay.start()
 	if Input.is_action_pressed("ui_up"):
 		queue_jump_timer.start()
 	if !queue_jump_timer.is_stopped() && !grounded_delay.is_stopped():
-		velocity.y = -GRAVITY.y - JUMP_HEIGHT
+		return -GRAVITY - JUMP_HEIGHT
+	if y < 0:
+		return  -(abs(y) / END_JUMP_PERCENT)
+	return y
 
 func get_animation_name() -> String:
 	var name := ""
