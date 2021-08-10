@@ -5,7 +5,6 @@
 [ext_resource path="res://Food/Scripts/Food/Food.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Food/ingredients/bread.tres" type="Resource" id=4]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 173.442, 115.078 )
 
@@ -13,11 +12,6 @@ extents = Vector2( 173.442, 115.078 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 231.788, 220.563 )
-GRAVITY = 5.0
-ROLLING_FRICION = 0.129
-STATIC_FRICTION = 0.722
-JUMP_HEIGHT = 200.0
-END_JUMP_PERCENT = 0.2
 
 [node name="Block 2" type="StaticBody2D" parent="."]
 position = Vector2( 244.659, 299.813 )
@@ -48,5 +42,5 @@ position = Vector2( 142.567, 222.23 )
 definition = ExtResource( 4 )
 
 [node name="Food2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 81.182, 220.549 )
+position = Vector2( 83.804, 180.844 )
 definition = ExtResource( 4 )

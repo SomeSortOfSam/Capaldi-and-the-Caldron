@@ -9,20 +9,19 @@ height = 18.6096
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.997828, 1 )
-collision_layer = 0
+collision_layer = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 SPEED = 10.0
-GRAVITY = Vector2( 0, 1 )
-FRICTION = 0.9
-JUMP_HEIGHT = 100.0
+GRAVITY = 5.0
+ROLLING_FRICION = 0.12
+STATIC_FRICTION = 0.7
+JUMP_HEIGHT = 200.0
+END_JUMP_PERCENT = 0.2
 
 [node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 1
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -43,3 +42,7 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="FoodHolder" type="Node2D" parent="."]
+position = Vector2( 0, -27 )
+z_index = -1
