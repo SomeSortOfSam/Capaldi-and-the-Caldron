@@ -3,8 +3,7 @@
 [ext_resource path="res://Food/Scripts/Food/FoodDefinition.gd" type="Script" id=1]
 [ext_resource path="res://Food/Ingredients/Second Order/Images/toastie.png" type="Texture" id=2]
 
-
-
 [resource]
 script = ExtResource( 1 )
+name = "Toastie"
 sprite = ExtResource( 2 )

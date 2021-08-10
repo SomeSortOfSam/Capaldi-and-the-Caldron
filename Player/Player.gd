@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+const QUEUE_GUI_ITEM_PATH = "res://Player/FoodQueueGUIItem.tscn"
+
 const ANIM_JUMP_PREFIX = "Jump"
 const ANIM_IDEL_PREFIX = "Still"
 const ANIM_CROUCH_PREFIX = "Crouch"
@@ -21,6 +23,7 @@ onready var ground_cast : RayCast2D = $RayCast2D
 onready var queue_jump_timer : Timer = $QueueJumpTimer
 onready var grounded_delay : Timer = $GroundedDelayTimer
 onready var food_holder : Node2D = $FoodHolder
+onready var food_queue_GUI : VBoxContainer = $CanvasLayer/VBoxContainer
 
 var velocity := Vector2.ZERO;
 var check_for_pickup := []
@@ -54,15 +57,18 @@ func apply_friction(delta,axis : float) -> float:
 	return pow(1-STATIC_FRICTION,delta *10.0)
 
 func check_jump(y : float) -> float:
-	if ground_cast.is_colliding():
-		grounded_delay.start()
-	if Input.is_action_pressed("ui_up"):
-		queue_jump_timer.start()
+	start_jump_timers()
 	if !queue_jump_timer.is_stopped() && !grounded_delay.is_stopped():
 		return -GRAVITY - JUMP_HEIGHT
 	if y < 0 && !Input.is_action_pressed("ui_up"):
 		return  y * END_JUMP_PERCENT
 	return y
+
+func start_jump_timers():
+	if ground_cast.is_colliding():
+		grounded_delay.start()
+	if Input.is_action_pressed("ui_up"):
+		queue_jump_timer.start()
 
 func handle_animation():
 	sprite.flip_h = velocity.x > 0

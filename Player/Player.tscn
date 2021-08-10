@@ -24,7 +24,6 @@ END_JUMP_PERCENT = 0.2
 [node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -57,5 +56,21 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
 position = Vector2( 0, 10 )
 shape = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -20.0
+margin_right = 230.0
+margin_bottom = -20.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="PickupZone" to="." method="_on_PickupZone_area_entered"]
 [connection signal="area_exited" from="PickupZone" to="." method="_on_PickupZone_area_exited"]

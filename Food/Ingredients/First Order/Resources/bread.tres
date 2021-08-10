@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource( 1 )
+name = "Bread"
 sprite = ExtResource( 2 )
