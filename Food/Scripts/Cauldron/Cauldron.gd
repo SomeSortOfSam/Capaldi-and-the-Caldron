@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 class_name Cauldron
 
 export var recipes := []
@@ -10,6 +10,7 @@ signal checked_recipe(is_valid)
 
 func add_food(food : Food):
 	ingredinets.append(food.definition)
+	food.queue_free()
 	if ingredinets.size() >= 3:
 		check_recipe()
 

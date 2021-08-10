@@ -32,16 +32,16 @@ var holding : bool
 
 func _process(_delta):
 	handle_animation()
-	check_pickup()
 
 func _physics_process(delta):
-	var axis = get_horizontal_axis()
-	velocity.x += axis * SPEED
-	velocity.x *= apply_friction(delta,axis)
-	velocity.y += GRAVITY;
-	velocity.y = check_jump(velocity.y)
-	
-	velocity = move_and_slide(velocity)
+	if !Engine.editor_hint:
+		var axis = get_horizontal_axis()
+		velocity.x += axis * SPEED
+		velocity.x *= apply_friction(delta,axis)
+		velocity.y += GRAVITY;
+		velocity.y = check_jump(velocity.y)
+
+		velocity = move_and_slide(velocity)
 
 func get_horizontal_axis() -> float:
 	var movementVector := 0.0
@@ -88,14 +88,20 @@ func get_animation_prefix() -> String:
 		return ANIM_IDEL_PREFIX
 	return ANIM_WALK_PREFIX
 
+func _unhandled_input(event):
+	if not Engine.editor_hint:
+		if event.is_action_pressed("ui_down", false):
+			check_pickup()
+		if event is InputEventMouseButton && event.is_pressed() && event.button_index == 1:
+			check_throw(event)
+
 func check_pickup():
-	if Input.is_action_just_pressed("ui_down"):
-		if check_for_pickup.size() > 0:
-			pickup_food(check_for_pickup.pop_back())
-		elif holding:
-			reclaim_held_food()
-		elif foods.size() > 0:
-			hold_next_food()
+	if check_for_pickup.size() > 0:
+		pickup_food(check_for_pickup.pop_back())
+	elif holding:
+		reclaim_held_food()
+	elif foods.size() > 0:
+		hold_next_food()
 
 func pickup_food(food : Food):
 	foods.push_back(food.definition)
@@ -123,3 +129,20 @@ func _on_PickupZone_area_exited(area):
 		var index := check_for_pickup.find(food)
 		if index != -1:
 			check_for_pickup.remove(index)
+
+func check_throw(event : InputEventMouseButton):
+	if holding:
+		var food = food_holder.get_child(0) as Food
+		reparent_food(food)
+		throw_food(food)
+
+func reparent_food(food):
+	food_holder.remove_child(food)
+	get_parent().add_child(food)
+	food.global_position = food_holder.global_position
+	food.is_held = false
+	holding = false
+
+func throw_food(food : Food):
+	food.velocity.x = get_global_mouse_position().x - food.global_position.x 
+	food.velocity.y = -abs(get_global_mouse_position().y -food.global_position.y)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grilledcheese.png-643bc73fbf59da10be010526b8e2482f.stex"
+path="res://.import/Cauldron.png-f172194be0c968abb42dd25d5792f207.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/ingredients/grilledcheese.png"
-dest_files=[ "res://.import/grilledcheese.png-643bc73fbf59da10be010526b8e2482f.stex" ]
+source_file="res://Food/Scripts/Cauldron/Cauldron.png"
+dest_files=[ "res://.import/Cauldron.png-f172194be0c968abb42dd25d5792f207.stex" ]
 
 [params]
 

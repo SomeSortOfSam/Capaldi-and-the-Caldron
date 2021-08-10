@@ -24,7 +24,7 @@ END_JUMP_PERCENT = 0.2
 [node name="Icon" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )
 animation = "Walk_Hold"
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,3 +58,4 @@ collision_mask = 4
 position = Vector2( 0, 10 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="PickupZone" to="." method="_on_PickupZone_area_entered"]
+[connection signal="area_exited" from="PickupZone" to="." method="_on_PickupZone_area_exited"]
