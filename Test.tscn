@@ -9,6 +9,12 @@ extents = Vector2( 173.442, 115.078 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 231.788, 220.563 )
+GRAVITY = 5.0
+ROLLING_FRICION = 0.129
+STATIC_FRICTION = 0.722
+JUMP_HEIGHT = 200.0
+END_JUMP_PERCENT = 0.2
 
 [node name="Block 2" type="StaticBody2D" parent="."]
 position = Vector2( 244.659, 299.813 )
