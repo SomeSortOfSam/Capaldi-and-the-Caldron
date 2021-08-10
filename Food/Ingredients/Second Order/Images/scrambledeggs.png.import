@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/butter.png-a23386c90d3b6b46db81e99ed889adb6.stex"
+path="res://.import/scrambledeggs.png-908df6f899fa0883c835ab1901d19972.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/ingredients/butter.png"
-dest_files=[ "res://.import/butter.png-a23386c90d3b6b46db81e99ed889adb6.stex" ]
+source_file="res://Food/Ingredients/Second Order/Images/scrambledeggs.png"
+dest_files=[ "res://.import/scrambledeggs.png-908df6f899fa0883c835ab1901d19972.stex" ]
 
 [params]
 
