@@ -57,8 +57,8 @@ func check_jump(y : float) -> float:
 		queue_jump_timer.start()
 	if !queue_jump_timer.is_stopped() && !grounded_delay.is_stopped():
 		return -GRAVITY - JUMP_HEIGHT
-	if y < 0:
-		return  -(abs(y) / END_JUMP_PERCENT)
+	if y < 0 && !Input.is_action_pressed("ui_up"):
+		return  y * END_JUMP_PERCENT
 	return y
 
 func get_animation_name() -> String:
