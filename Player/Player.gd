@@ -9,7 +9,6 @@ const ANIM_WALK_PREFIX = "Walk"
 const ANIM_HOLDING_SUFFIX = "Hold"
 const ANIM_NOT_HOLDING_SUFFIX = "Empty"
 
-signal try_pickup()
 signal got_food(food)
 signal ungot_food()
 
@@ -19,7 +18,6 @@ export(float,0,1) var ROLLING_FRICION : float
 export(float,0,1) var STATIC_FRICTION : float
 export var JUMP_HEIGHT : float
 export(float,.001,1) var END_JUMP_PERCENT : float
-export var holding : bool
 
 onready var sprite : AnimatedSprite = $Icon
 onready var ground_cast : RayCast2D = $RayCast2D
@@ -28,7 +26,9 @@ onready var grounded_delay : Timer = $GroundedDelayTimer
 onready var food_holder : Node2D = $FoodHolder
 
 var velocity := Vector2.ZERO;
+var check_for_pickup := []
 var foods := []
+var holding : bool
 
 func _process(_delta):
 	handle_animation()
@@ -90,12 +90,16 @@ func get_animation_prefix() -> String:
 
 func check_pickup():
 	if Input.is_action_just_pressed("ui_down"):
-		emit_signal("try_pickup")
-		if holding:
+		if check_for_pickup.size() > 0:
+			pickup_food(check_for_pickup.pop_back())
+		elif holding:
 			reclaim_held_food()
+		elif foods.size() > 0:
+			hold_next_food()
 
-func add_food(food : FoodDefinition):
-	foods.push_back(food)
+func pickup_food(food : Food):
+	foods.push_back(food.definition)
+	food.queue_free()
 
 func hold_next_food():
 	var food = load(Food.SCENE_PATH).instance() as Food
@@ -105,4 +109,17 @@ func hold_next_food():
 	holding = true
 
 func reclaim_held_food():
+	pickup_food(food_holder.get_child(0))
 	holding = false
+
+func _on_PickupZone_area_entered(area):
+	var food := area.get_parent() as Food
+	if food is Food:
+		check_for_pickup.append(food)
+
+func _on_PickupZone_area_exited(area):
+	var food := area.get_parent() as Food
+	if food is Food:
+		var index := check_for_pickup.find(food)
+		if index != -1:
+			check_for_pickup.remove(index)
