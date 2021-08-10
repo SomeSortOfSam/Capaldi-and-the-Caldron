@@ -9,9 +9,6 @@ const ANIM_WALK_PREFIX = "Walk"
 const ANIM_HOLDING_SUFFIX = "Hold"
 const ANIM_NOT_HOLDING_SUFFIX = "Empty"
 
-signal got_food(food)
-signal ungot_food()
-
 export var SPEED : float
 export var GRAVITY: float
 export(float,0,1) var ROLLING_FRICION : float
@@ -93,7 +90,7 @@ func _unhandled_input(event):
 		if event.is_action_pressed("ui_down", false):
 			check_pickup()
 		if event is InputEventMouseButton && event.is_pressed() && event.button_index == 1:
-			check_throw(event)
+			check_throw()
 
 func check_pickup():
 	if check_for_pickup.size() > 0:
@@ -130,7 +127,7 @@ func _on_PickupZone_area_exited(area):
 		if index != -1:
 			check_for_pickup.remove(index)
 
-func check_throw(event : InputEventMouseButton):
+func check_throw():
 	if holding:
 		var food = food_holder.get_child(0) as Food
 		reparent_food(food)

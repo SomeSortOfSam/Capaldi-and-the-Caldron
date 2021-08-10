@@ -136,6 +136,7 @@ extents = Vector2( 9.56, 2.294 )
 radius = 14.0
 
 [node name="Cauldron" type="StaticBody2D"]
+scale = Vector2( 4, 4 )
 collision_mask = 0
 script = ExtResource( 2 )
 recipes = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ]
@@ -158,5 +159,23 @@ shape = SubResource( 26 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 13 )
 shape = SubResource( 27 )
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="check_recipe"]
+
+[node name="FoodIndicators" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 0, -15 )
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="FoodIndicators"]
+position = Vector2( -30, 20 )
+
+[node name="Sprite2" type="Sprite" parent="FoodIndicators"]
+
+[node name="Sprite3" type="Sprite" parent="FoodIndicators"]
+position = Vector2( 30, 20 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="body_entered" from="FoodZone" to="." method="_on_FoodZone_body_entered"]
