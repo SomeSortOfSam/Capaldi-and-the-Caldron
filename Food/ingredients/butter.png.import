@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pretzel.png-a895bfb16ad622f068072ca6b1621074.stex"
+path="res://.import/butter.png-a23386c90d3b6b46db81e99ed889adb6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/pretzel.png"
-dest_files=[ "res://.import/pretzel.png-a895bfb16ad622f068072ca6b1621074.stex" ]
+source_file="res://Food/ingredients/butter.png"
+dest_files=[ "res://.import/butter.png-a23386c90d3b6b46db81e99ed889adb6.stex" ]
 
 [params]
 

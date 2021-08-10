@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/toastie.png-b32fdc25b806de99e4bff0f240cb9185.stex"
+path="res://.import/toastie.png-ec3b35adc9ccc5c52a3b3a0814e54ad3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/toastie.png"
-dest_files=[ "res://.import/toastie.png-b32fdc25b806de99e4bff0f240cb9185.stex" ]
+source_file="res://Food/ingredients/toastie.png"
+dest_files=[ "res://.import/toastie.png-ec3b35adc9ccc5c52a3b3a0814e54ad3.stex" ]
 
 [params]
 

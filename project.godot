@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Cauldron",
 "language": "GDScript",
-"path": "res://Food/Cauldron.gd"
+"path": "res://Food/Scripts/Cauldron/Cauldron.gd"
 }, {
 "base": "Node2D",
 "class": "Food",
 "language": "GDScript",
-"path": "res://Food/Food.gd"
+"path": "res://Food/Scripts/Food/Food.gd"
 }, {
 "base": "Resource",
 "class": "FoodDefinition",
 "language": "GDScript",
-"path": "res://Food/FoodDefinition.gd"
+"path": "res://Food/Scripts/Food/FoodDefinition.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Recipe",
 "language": "GDScript",
-"path": "res://Food/Recipe.gd"
+"path": "res://Food/Scripts/Recipe.gd"
 } ]
 _global_script_class_icons={
 "Cauldron": "",
@@ -58,7 +58,7 @@ Display=8
 
 [application]
 
-config/name="Capaldi and the Caldron 0.0.1"
+config/name="Capaldi and the Caldron 0.0.2"
 run/main_scene="res://Test.tscn"
 config/icon="res://icon.png"
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/egg.png-0be0c360dfda6a40bf18381807495265.stex"
+path="res://.import/eggsandbacon.png-d0ff8bd1e9c3386218182b0f0d7e9805.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/egg.png"
-dest_files=[ "res://.import/egg.png-0be0c360dfda6a40bf18381807495265.stex" ]
+source_file="res://Food/ingredients/eggsandbacon.png"
+dest_files=[ "res://.import/eggsandbacon.png-d0ff8bd1e9c3386218182b0f0d7e9805.stex" ]
 
 [params]
 

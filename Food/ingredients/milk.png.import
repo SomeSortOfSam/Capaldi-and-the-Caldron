@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/potato.png-52308329ada56c0af123e6ab21f18d2d.stex"
+path="res://.import/milk.png-e529b701af477288d85fa7483b2ad6db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/potato.png"
-dest_files=[ "res://.import/potato.png-52308329ada56c0af123e6ab21f18d2d.stex" ]
+source_file="res://Food/ingredients/milk.png"
+dest_files=[ "res://.import/milk.png-e529b701af477288d85fa7483b2ad6db.stex" ]
 
 [params]
 

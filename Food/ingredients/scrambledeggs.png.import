@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eggsandbacon.png-594a4a83b601f6328adb45bf14e517d0.stex"
+path="res://.import/scrambledeggs.png-10444d811d5501d1800b577c73725690.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ingredients/eggsandbacon.png"
-dest_files=[ "res://.import/eggsandbacon.png-594a4a83b601f6328adb45bf14e517d0.stex" ]
+source_file="res://Food/ingredients/scrambledeggs.png"
+dest_files=[ "res://.import/scrambledeggs.png-10444d811d5501d1800b577c73725690.stex" ]
 
 [params]
 
